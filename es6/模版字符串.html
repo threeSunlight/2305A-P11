@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <div>
+
+    </div>
+    <div class="content">
+
+    </div>
+    <div id="div">
+
+    </div>
+</body>
+<script>
+    /**原生字符串的拼接方式
+     * 数组
+     * 伪数组
+     * 伪数组如何转换为数组
+     * 
+     * 伪类
+     * 伪元素
+     * 
+     * **/
+
+    let result="<div>"
+        +"<p>"
+        +"夕阳无限好,只是近黄昏"
+        +"</p>"
+        +"<p>"
+        +" 但是龙门飞将在,不教胡马度阴山"
+        +" </p>"
+        +"</div>"
+    let result1=`
+        <div>
+            <div>
+                <p>你好</p>
+            </div>
+        </div>
+        `
+    document.querySelector('p').innerHTML=result
+    console.log(document.querySelector('p'));
+    console.log(document.querySelectorAll('p'));
+    console.log(document.getElementsByTagName('body'));
+    console.log(document.getElementsByClassName('content'), '42')
+    console.log(document.getElementById('div'), '43')
+    //document.getElementsByTagName('div')[0].innerHTML=result1
+</script>
+
+</html>

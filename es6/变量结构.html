@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /***
+     * 变量的解构
+     * 1. 数组解构
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 2. 对象解构
+     * 
+     * 
+     * ***/
+
+    // 数组解构
+    let F4 = ['蔡徐坤', '迪丽热巴', '胡星宇', '科比']
+    let [xiao, liu, zhao] = F4;
+    console.log(xiao);
+    console.log(zhao);
+
+    // 对象的解构
+    let personObj = {
+        name: '胡星宇',
+        age: 18,
+        say: function() {
+            alert('我在说话')
+        }
+    }
+
+    let {name: data,age} = personObj
+    let {say} = personObj
+    console.log(age,data);
+    console.log(name);
+    say()
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 全局作用域
+  //  console.log(names,'15'); // undefind
+    //console.log(namesa,'15'); // 
+    let name = '小红'
+    name = '小白'
+    /**
+     * let 是块级作用域,不能被重复声明,所以函数名不能和他重复
+     * 
+     * var提升的时候,只提升变量名,不提升变量值
+     * 函数名也会提升,但是函数名提升优先于变量名,如果函数名和变量名重复,提升的是函数名
+    */
+   // var namesa = 1;
+
+    // function namesa() {
+    //     console.log('我是函数');
+    // }
+
+    {
+        // 局部作用域
+        let name = '小李'
+        console.log(name, '32');
+    }
+
+    function fn() {
+        // 函数作用域
+        let name = '小黑'
+        console.log(name, '38');
+    }
+
+    fn()
+    console.log(name, '40');
+    // 原始js中 只有全局作用域 函数作用域
+    // es6新增以后  块级作用域 全局作用域 函数作用域
+</script>
+</html>

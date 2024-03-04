@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // es5定义函数
+    /*** 
+     * 改变this指向的方法 bind,apply,call 需要几个参数,每个参数是什么类型,怎么调用生效
+     * 作业: 将fns改变成obj的this指向
+     * 
+     * **/
+    function fn(a,b,c,d) {
+        console.log(this);
+        console.log(arguments, '2111111');
+    }
+    fn(1,2,3,4,5)
+
+    let fns = () => {
+        console.log(this, '21');
+        // console.log(arguments, '27');
+    }
+
+    let obj = {
+        name: 'ddd',
+        say: function() {
+            console.log(this, '27');
+            fns()
+        }
+    }
+   obj.say()
+
+
+
+
+
+   // es5中构造函数
+   /**
+    * 封装一个公共的函数,实例化成新的函数
+    * 构造函数 首字母大写,可以用new生成新的实例化对象
+    * 继承 
+    * 原型链
+    * 
+    * prototype 显式原型
+    * _proto_   隐式原型
+    *  前端js中  万物皆对象
+    * 原型查找直至null表示原型终止,结束查找
+    * 
+    * 
+    * 构造函数,原型,原型链,继承
+    * 
+   */
+   function Person(name,age) {
+    this.name = name 
+    this.age = age
+   }
+
+//  const Persons = (name,age) => {
+//     this.name = 
+//  }
+
+   console.dir(Person, 'Person');
+   //原型修改
+   Person.prototype.sayHai = function() {
+    alert('我在说话')
+   }
+
+   const sexPerson =  new Person('小南', 18)
+   sexPerson.sayHais()
+   const sexPersonaaaa =  new Person('小南sss', 18555)
+   console.log(sexPerson, '50');
+   console.log(sexPerson.name);
+   console.log(sexPerson.age);
+   console.log(sexPersonaaaa.age);
+   console.log(sexPersonaaaa.name);
+</script>
+</html>
