@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div>
-        我当前在development分支
     </div>
 </body>
+<script>
+    const arr1=["a",1,2,3,["b","c",5,6]]
+    const arr2=[1,2,4,"d","a",["e","f",5,6,7]]
+
+    // 将多维数组处理成以为数组
+    function transtionArray (array,copyArr1=[]) {
+        array.forEach(item => {
+            if(Array.isArray(item)) {
+                transtionArray(item,copyArr1)
+            } else {
+                copyArr1.push(item)
+            }
+        })
+        return copyArr1
+    }
+
+    function fn (arr1,arr2) {
+        // 1. 将arr1转换成一维数组
+        let nums1=transtionArray(arr1)
+        // 2. 将arr2转换成一维数组
+        let nums2=transtionArray(arr2)
+        var len1=nums1.length;
+        var len2=nums2.length;
+        var shortArr=nums2
+        var longArr=nums1
+        if(len1<len2) {
+            shortArr=nums1
+            longArr=nums2
+        }
+        var arr=[]
+        for(let i=shortArr.length-1;i>=0;i--) {
+            var num=shortArr[i]
+            let index=longArr.indexOf(num)
+            if(index!=-1) {
+                arr.push(num)
+                longArr[index]=undefined
+            }
+        }
+        return arr
+
+    }
+
+    const result=fn(arr1,arr2)
+    console.log(result,'62')
+</script>
+
 </html>
