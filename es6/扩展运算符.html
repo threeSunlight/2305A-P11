@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+</head>
+<body>
+    
+</body>
+<script>
+     // 『...』 扩展运算符能将『数组』转换为逗号分隔的『参数序列』
+     /***
+      * 应用场景: 1. 可以将伪数组转换为数组
+      *          2. 进行数组的合并和拷贝
+      *         3. 传参的时候讲数组转化为一个序列参数
+      * **/
+        //声明一个数组 ...
+        const tfboys = ['易烊千玺','王源','王俊凯'];
+        // => '易烊千玺','王源','王俊凯'
+
+        // 声明一个函数
+        function chunwan(){
+            console.log(arguments); // 数组
+        }
+
+        chunwan(...tfboys);// chunwan('易烊千玺','王源','王俊凯')
+
+        // 扩展运算符还用在哪里
+        const result = [1,2,3,4,5]
+
+        const Two = [...result, ...tfboys]
+        console.log(Two,'Two');
+          //3. 将伪数组转为真正的数组
+          /**
+           * 
+           * 伪数组没有数组的areguments.不能使用数组的方法
+          */
+        const divs = document.querySelectorAll('div');
+        const divArr = [...divs];
+        console.log(divArr);// arguments
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器</title>
+</head>
+<body>
+    <script>
+        //声明一个数组
+        const xiyou = ['唐僧','孙悟空','猪八戒','沙僧'];
+
+        //使用 for...of 遍历数组, for...in
+        /**
+         * for...of 遍历出来的是key值
+         * for...in 遍历出来的是下标
+         * iterator是async和await的底层原理
+         * ***/
+        for(let v of xiyou){
+            console.log(v);
+        }
+        // for(let index in xiyou) {
+        //     console.log(key);
+        // }
+
+        let iterator = xiyou[Symbol.iterator]();
+        console.log(iterator);
+        // //调用对象的next方法
+        console.log(iterator.next());
+        //{value: '唐僧', done: false}  value当前的值,done是否循环结束
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        // console.log(iterator.next());
+
+
+
+        /***
+         * async 和await 只能返回promise函数
+         * 
+         * **/
+      async  function  name1() {
+            setTimeout(() => {
+                // console.log(1)
+                return "hello world";
+            }, 1000)
+          
+        }
+
+
+        async  function name2() {
+            setTimeout(() => {
+               
+                return 4
+            }, 500)
+        }
+
+
+        async function aa() {
+            // name1()
+            // name2()
+            let  result1 = await name1()
+            let  result2 = await name2()
+            console.log(result1);
+            console.log(result2);
+        }
+        aa()
+    </script>
+</body>
+</html>

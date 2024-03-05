@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数参数</title>
+</head>
+<body>
+    <script>
+        /**
+         * 生成器: 
+         * 1. 函数名和function关键字段中有一个*号
+         * 2. 有多个yield返回值
+         * 3. 有next()方法
+         * 4. next()方法可以传参
+         * 
+         * **/
+      function * gen(arg){
+            let one = yield 111;
+            console.log(one, '12'); //BBBB
+            let two = yield 222;
+            console.log(two, '14'); //CCC
+            let three = yield two;
+            console.log(three, '16'); //DDD
+        }
+
+
+        //执行获取迭代器对象
+        let iterator = gen('AAAA');
+        console.log(iterator.next()); // {value: 111,done: false}
+        //next方法可以传入实参
+        console.log(iterator.next('BBB'));
+        console.log(iterator.next('CCC'));
+        console.log(iterator.next('DDD'));
+        
+    </script>
+</body>
+</html>
