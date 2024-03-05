@@ -16,6 +16,14 @@
     const arr1=["a",1,2,3,["b","c",5,6]]
     const arr2=[1,2,4,"d","a",["e","f",5,6,7]]
 
+    /**
+     * 1. 将多维数组转换成一维数组
+     * 2. 循环其中一个数组,拿到数组每一项,和另一个数组进行比对(includes,indexOf)进行对比
+     * 
+     * 
+     * 
+     * **/
+
     // 将多维数组处理成以为数组
     function transtionArray (array,copyArr1=[]) {
         array.forEach(item => {
@@ -44,7 +52,7 @@
         var arr=[]
         for(let i=shortArr.length-1;i>=0;i--) {
             var num=shortArr[i]
-            let index=longArr.indexOf(num)
+            let index=longArr.includes(num)
             if(index!=-1) {
                 arr.push(num)
                 longArr[index]=undefined

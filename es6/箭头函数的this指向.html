@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // var name='window'; // 其实是window.name = 'window'
+
+    // // es5的函数写法
+    // var A={
+    //     name: 'A',
+    //     sayHello: function() {
+    //         console.log(this.name)
+    //     }
+    // }
+
+    // A.sayHello();// 输出A
+
+    // var B={
+    //     name: 'B'
+    // }
+
+    // A.sayHello.call(B);//输出B
+
+    // A.sayHello.call();//不传参数指向全局window对象，输出window.name也就是window
+
+    // //es5函数this指向谁使用时的this指向
+
+    /**
+     * 总结: 
+     * 1. es5 function函数this指向是使用时this指向
+     * 2. es6 箭头函数this指向,指向的是 声明箭头函数时候,所在作用域的this指向
+     *
+     * 
+     * 作用域:
+     * 全局作用域
+     * 函数作用域
+     * 块级作用域
+     * 
+     * **/
+
+    // var name='window';
+    // // A所在的作用域是全局作用, this指向--window
+    // var A={
+    //     name: 'A',
+    //     sayHello: () => {
+    //         console.log(this.name) // window
+    //     }
+    // }
+
+    // A.sayHello();//  这块输出的是什么?
+
+    var name='window';
+
+    var A={
+        name: 'A',
+        sayHello: function() {
+            // 以下就是函数作用域, 因为函数指向的是当前作用域是A,所以声明的箭头函数所在作用域也是A
+            var s=() => console.log(this.name)
+            return s//返回箭头函数s
+        }
+    }
+
+    var sayHello=A.sayHello();
+    sayHello();// 输出A 
+
+    var B={
+        name: 'B'
+    }
+
+    sayHello.call(B); //还是A
+    sayHello.call(); //还是A
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reset剩余参数</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    /**
+     * 总结: 剩余参数写法   ...args
+     *      接收到的参数是以数组的形式输出的
+     *      作用: 用来接受没有被申明的变量参数
+     * 
+     * **/
+    function person() {
+        console.log(arguments)
+    }
+    person([1,2,3,4,5,6])
+
+    // const fan = (...args) => {
+    //     console.log(args)
+    // }
+    // fan('小徐','小李', '小张')
+
+
+    const fan = (a,b,...args) => {
+        console.log(args)
+    }
+    fan('小徐','小李', '小张',1,2,3,4,45)
+</script>
+</html>
