@@ -24,7 +24,10 @@
          * then 成功
          * catch 失败
          * 链式调用: .then.then  .catch: 会捕捉第一次错误码,代码将不会执行
+         *  
+         * promise.then返回的永远是一个promise函数,里面值的状态由返回值的成功和失败决定
          * 
+         *
          * **/
         const p=new Promise(function(resolve,reject) {
             setTimeout(function() {

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /***
+     * import export require
+     * 
+     * **/
+    // node.js中阅读文档的api
+    const fs = require('fs');
+    /*** 第一种写法 */
+    // function getPeach () {
+    //     return new Promise(function(resolve,reject) {
+    //         fs.readFile('./resource/桃花源记.md',(err,data) => {
+    //             if(err) reject(err)
+    //             resolve(data)
+    //         })
+    //     })
+    // }
+    /**第二种写法  
+     * 封装桃花源记的接口
+    */
+    const getPeach=new Promise((resolve,reject) => {
+        fs.readFile('./resource/桃花源记.md',(err,data) => {
+            if(err) reject(err)
+            resolve(data)
+        })
+    })
+
+    /**出居庸关* */
+    function getAgent () {
+        return new Promise(function(resolve,reject) {
+            fs.readFile('./resource/出居庸关.md',(err,data) => {
+                if(err) reject(err)
+                resolve(data)
+            })
+        })
+
+    }
+
+    /**出师表* */
+    function getTroops () {
+        return new Promise(function(resolve,reject) {
+            fs.readFile('./resource/出师表.md',(err,data) => {
+                if(err) reject(err)
+                resolve(data)
+            })
+        })
+    }
+
+    getPeach().then(res => {
+        /***如果不转成字符串将会变成二进制数组 */
+        console.log(res.toString());
+        const data1=res.toString()
+        return data1
+    }).then(res => {
+        console.log(res);
+        const data2=getAgent().then(data => data.toString())
+        return data2
+    }).then(res2 => {
+        console.log(res2,'61');
+    })
+
+
+</script>
+
+</html>
