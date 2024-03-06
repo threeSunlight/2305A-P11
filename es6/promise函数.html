@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 异步请求
+    $.ajax({
+        type: "GET",
+        url: "./data.json",
+        success: function(res) {
+            const {id}=res; //结构 const id = res.id
+            $.ajax({ // 10s
+                type: "GET",
+                url: "./data2.json",
+                data: {id}, //es6 {id:id}
+                success: function(res) {
+                    const {username}=res;
+                    $.ajax({
+                        type: "GET",
+                        url: "./data3.json",
+                        data: {username}, //es6 {id:id}
+                        success: function(res) {
+                            console.log(res)
+                        },
+                    });
+                },
+                fail:function() {
+
+                }
+            });
+        },
+        fail:function() {
+
+        }
+    });
+</script>
+
+</html>

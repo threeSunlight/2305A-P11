@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise的链式调用</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /**
+     * 封装promise实例化函数
+     * 
+    */
+
+    const p = new Promise((resolve,rejected) => {
+        setTimeout(() => {
+            const data='我是第一个报错信息'
+            resolve(data)
+        },1000)
+    })
+
+  function getName(res) {
+    // 模拟接口报错
+    throw new Error('我是第二个报错信息');
+  }
+
+  /**链式调用解决了回调问题,一个then处理一个请求接口
+   * 
+   * catch 捕捉报错第一个.then的信息
+   * 如果第一个then报错了,就不会再往下走了
+   * 
+  */
+    p.then(res => {
+        console.log(res,'成功');
+        return res
+    }).then((value) => {
+        getName()
+    }).then( res => {
+        console.log(res, '我是第三个then');
+    }).catch((err) => {
+        console.log(err, 'err');
+    })
+
+
+</script>
+
+</html>

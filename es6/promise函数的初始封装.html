@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise基本语法</title>
+</head>
+
+<body>
+    <script>
+        //实例化 Promise 对象
+        /**
+         * 概念: promise函数是一个容器,里面存放着异步代码
+         * 特点: 
+         * 1. 有三种状态: 进行中: pedding,已成功: resolve, 已失败: reject
+         * 2. 状态一经凝固 就不会再改变
+         * 3. 状态变化有两种变化: 1. pedding---resolve   2.pedding---reject
+         * 
+         * promise函数底层原理是根据什么封装的
+         *    根据原生js提供的网络请求XMLHttpRequest进行封装
+         * 
+         * 方法: 
+         * then 成功
+         * catch 失败
+         * 链式调用: .then.then  .catch: 会捕捉第一次错误码,代码将不会执行
+         * 
+         * **/
+        const p=new Promise(function(resolve,reject) {
+            setTimeout(function() {
+                // let data='数据库中的用户数据';
+                // resolve(data);
+                let err = '数据读取失败';
+                reject(err);
+            },1000);
+        });
+
+        /**完整的调用方式*/
+        // p.then(res => {
+        //     console.log(res, 'res');
+        // })
+        // .catch(err => {
+        //     console.log(err, 'err')
+        // })
+
+        /***简写的调用方法**/
+        p.then(
+        (res)=>{
+            console.log(res, '成功');
+        }, 
+        (error)=>{
+            console.error(error, '失败');
+        });
+    </script>
+</body>
+
+</html>
