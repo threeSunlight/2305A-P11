@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <!-- java javaScript -->
+</body>
+<script>
+
+    // 传统es5的构造语法
+    /**
+     * 需求: 编写一个手机的构造函数
+     * 公共特性: 型号,价格,功能:打电话
+     * 实例化成 华为手机
+     * 构造函数
+     * 继承
+     * **/
+    function Phone(model,price) {
+        this.model = model
+        this.price = price
+    }
+    console.dir(Phone)
+    Phone.prototype.call = function() {
+        console.log('我可以打电话')
+    }
+
+    const huawei = new Phone('华为Mate30', 6000)
+    console.log(huawei.model);
+    console.log(huawei.price);
+    huawei.call()
+
+    class Phones {
+        // 构造器
+        constructor(model,price) {
+            this.model = model
+            this.price = price
+        }
+        call() {
+            console.log('我可以打电话')
+        }
+    }
+
+    const huawei1 = new Phones('huaweiMate60', 8000)
+    console.log(huawei1.model);
+    console.log(huawei1.price);
+    huawei1.call()
+
+
+
+</script>
+</html>

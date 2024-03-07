@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>集合</title>
+</head>
+<body>
+    <script>
+        /**
+         * Set数组
+         * 特点: 唯一性,去重
+         * 使用方法: 
+         * 1.获取set数组长度: p.size
+         * 2.添加一个元素: .add
+         * 3.删除一个元素: .delete
+         * 4.判断一个元素是否包含在set数组中: .has
+         * 5.清空set数组: clear
+         * 
+         * 
+         * ***/
+        //声明一个 set
+        let array = [1,2,32,34,5,6]
+        let s = new Set();
+        console.log(s, 's');
+        console.log(array, 'array');
+        let s2 = new Set(['大事儿','小事儿','好事儿','坏事儿','小事儿']);
+
+       // 原生数组
+       // 获取 changdu
+       console.log(array.length);
+       console.log(array.push('徐良')); // 添加元素
+       array.splice(1,1)
+       // 判断一个数组是否包含当前元素
+       array.includes(1) // true/false
+       array.indexOf(1) // -1 /1
+       array = []
+
+
+
+       let obj = {
+        name: '肖旭',
+        age: 15
+       }
+
+       console.log(obj); // age
+       delete obj.name
+       console.log(obj,);
+        //元素个数
+         console.log(s2.size);
+        //添加新的元素
+        s2.add('喜事儿');
+        console.log(s2);
+        //删除元素
+         s2.delete('坏事儿');
+         console.log(s2);
+        //检测
+         console.log(s2.has('糟心事'));// true表示存在, false表示不存在
+         console.log(s2);
+        //清空
+        //  s2.clear();
+        //  console.log(s2);
+
+        for(let v of s2){
+            console.log(v);
+        }
+        
+    </script>
+</body>
+</html>

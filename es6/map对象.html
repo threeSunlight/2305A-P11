@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    /***
+     * map对象是怎么创建的
+     * 1. new Map方式来进行创建
+     * 2. 使用has方式获取当前Map对象是否包含这个建,返回的是true和false
+     * 3. 使用map.get方法 进行获取对健名的值  
+     * 4. 判断map对象的changdu  map.size
+     * 
+     * 
+     * **/
+    const map=new Map([
+        ['name','张三'],
+        ['title','Author']
+    ]);
+
+
+    map.size // 2
+    map.has('name') // true
+    map.get('name') // "张三"
+    map.has('title') // true
+    map.get('title') // "Author"
+    console.log(map.size);
+    console.log(map.has('name'));
+    console.log(map.get('name'));
+   
+</script>
+
+</html>
