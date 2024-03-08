@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Array.from
+    /**
+     * 1. 将set数组转换为真正的数组  Array.from
+     * 2. 将序列字符串转化为数组:  Array.of
+     * 3. 判断一个数组中是否包含一个值: infludes // true false
+     * [1,2,3,4,5,6,12,3,4,5,6,76]
+     * 作业: 
+     * 1. 有两个数组,每个有大量重复的值,我希望求出两个数组的交集
+     * 数组1: [1,2,3,'a','b','c',5,6,7,1,2,3,54]
+     * 数组2: ['a','e','c',5,6,7,8,1,2,3]
+     * 
+    */
+    let namesSet = new Set(['a', 'b'])
+    let result = Array.from(namesSet) // ['a', 'b']
+    console.log(result);
+    
+
+
+    let result1 = Array.of(1,2,3,4)
+    console.log(result1);
+
+
+    [1, 2, 3].includes(2)     // true
+    [1, 2, 3].includes(4)     // false
+    [1, 2, NaN].includes(NaN) // true\
+
+
+
+</script>
+</html>

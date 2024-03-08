@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body>
+    <!-- 
+        排期: 逻辑分析
+        1. 页面
+            分为三块
+            (1). 顶部标题: 使用h1标签来进行编写    20min
+            (2). 副标题: 日期: 采用moment.js day.js 原生日期处理器   1h
+            (3). 内容区域: 分为左右两个布局,采用display:flex    2h
+        纯页面编写   3.5h
+
+        2. 逻辑
+            1. 我们确定使用的数据类型, 对象: {id: ,name:, sex: ,}   10min
+            2. 确定每一个功能点
+               2.1 左侧页面渲染: 
+                    2.1.0  页面布局使用ul,li, 动态声场li标签       30min
+                    2.1.1  foreach循环,动态给每个li标签添加内容和背景颜色,实现颜色的渐变    2h
+                    2.1.2  如何实现颜色渐变,   30min
+                    2.1.3  换行flex: wrap    30min
+                    3.5h
+               2.2 右侧功能点
+                    单人点名: 在全部人员没有点名结束之前,不能重复出现,所以需要保存两个数组,一个是真正点名的数组, 一个全班人员
+                             全班人员进行循环页面,点一个人名加入到点名数组,保存数据,  3h
+                    双人点名: 在全部人员没有点名结束之前,不能重复出现,   3h
+                    男生点名: 在全部人员没有点名结束之前,不能重复出现,
+                             我们可以把男生放到一个数组中,点名的时候从男生数组中选择,每点一个名,数组清空一个,直到结束,然后重新恢复
+                             数组,实现单点
+                             2H
+                    女生点名: 在全部人员没有点名结束之前,不能重复出现,
+                             我们可以把男生放到一个数组中,点名的时候从男生数组中选择,每点一个名,数组清空一个,直到结束,然后重新恢复
+                             数组,实现单点
+                            2h
+                    天选之人: 在按钮的时候获取dom元素,实现页面渲染
+               10h
+
+               17h
+
+               2天
+     -->
+    <!-- 根节点 -->
+    <div class="container">
+        <!-- 标题 -->
+        <div class="container_header">
+            <h1>
+                H2305A点名器
+            </h1>
+        </div>
+        <!-- 副标题 -->
+        <div class="container_time">
+            <span>时间: 2024-2-29 12:23:24</span>
+        </div>
+        <!-- 中心区域 -->
+        <div class="container_content">
+            <!-- 左侧区域 -->
+            <div class="left">
+                <ul class="left_ui">
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                    <li>徐俊亮</li>
+                </ul>
+            </div>
+            <!-- 右侧区域 -->
+            <div class="right">
+                <div class="tianxuan">
+                    <span class="tianxuan_content">天选之人</span>: <span id="selected">徐俊亮</span>
+                </div>
+                <div class="fourButton">
+                    <button id="one"  onclick="oneSelected()">单人点名</button>
+                    <button id="two"  onclick="twoSelected">双人点名</button>
+                    <button id="three" onclick="boySelected">男生点名</button>
+                    <button  id="four"  onclick="girlSelected">女生点名</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+</html>

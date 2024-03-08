@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /**
+     * 特点: 
+     * 1.可以监听整个对象
+     * 2.永远开启深度监听
+     * 3.解决了数据变了视图不更新的问题
+     * 
+    */
+    var obj=new Proxy({},{
+        get: function(target,key,receiver) {
+            console.log(`getting ${key}!`);
+            console.log(target);
+            console.log(key);
+            console.log(receiver);
+            return Reflect.get(target,key,receiver);  // 调用浏览器提供给我们的方法,进行数据劫持
+        },
+        set: function(target,key,value,receiver) {
+            console.log(`setting ${key}!`);
+            console.log(target);
+            console.log(key);
+            console.log(value);
+            console.log(receiver);
+            return Reflect.set(target,key,value,receiver);
+        }
+    });
+    obj.count=1
+    //  setting count!
+    ++obj.count
+//  getting count!
+//  setting count!
+//  2
+
+</script>
+
+</html>

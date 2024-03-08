@@ -1,0 +1,91 @@
+
+/* 通配符 清除内外边距和默认标注 */
+*{
+
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+/**根节点**/
+.container{
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: #000
+}
+/* 标题居中 */
+.container_header{
+    text-align: center;
+    color: #fff
+}
+/* 时间居右 */
+.container_time{
+    text-align: right;
+    color: #fff
+}
+
+/* 内容区距顶部有间距 */
+.container_content{
+    margin-top: 40px;
+    display:flex;
+    justify-content: space-around;
+}
+/* 左侧区域设置 */
+.left{
+    width: 600px;
+}
+/* 给左侧区域设置弹性盒子 */
+.left_ui{
+    display: flex;
+    flex-wrap: wrap;
+}
+/* 给每个li标签设置属性 */
+.left_ui li{
+    width: 80px;
+    height: 60px;
+    text-align:center;
+    line-height: 60px;
+    background-clip: text;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background-size: auto;
+    color: transparent;
+ //   background:linear-gradient(45deg, blue, red);
+}
+/* 右侧区域设置样式 */
+.right{
+    width: 600px;
+    padding: 20px;
+}
+/* 天选之人的样式设置 */
+.tianxuan{
+    padding: 40px 0px 10px;
+    margin-bottom: 60px
+}
+/* 对Button按钮的设置 */
+button{
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: antiquewhite;
+    margin-right: 10px;
+}
+
+
+/* 天选之人样式设置 */
+.tianxuan_content{
+    font-size: 30px;
+    color: brown;
+}
+
+/* 右侧选中的人进行样式设置 */
+#selected {
+    font-size: 26px;
+    background-clip: text;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background-size: auto;
+    color: transparent;
+    background: -webkit-linear-gradient(30deg, #32c5ff 10%, #b620e0 20%, #f7b500 30%, #20e050 40%,yellow 50%,pink 60% , blue 70%,orangered 80%, orange 90%, green 100%);
+}
