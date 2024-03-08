@@ -98,24 +98,28 @@ renderDom()
 
 
 let timer
-let result
-let selectedName 
+
 function oneSelected() {
 	if(oneButton.innerText === '单人点名') {
 		timer = setInterval(() => {
 			renderDom()
-			// 数组的下标
-			result = Math.floor(Math.random() * (copyStudents.length - 0) + 0)  
-			selectedName = copyStudents[result].name
 		}, 500);
 		oneButton.innerText = '停止'
 	} else if(oneButton.innerText === '停止') {
 		// 清空定时器 
+		/**抽离出去 切除一个数据* */
 		copyStudents.splice(result,1)
-		tianxuanDOm.innerText = selectedName
+		tianxuanDOm.innerText = selectedName(copyStudents)
 		clearInterval(timer)
 		oneButton.innerText = '单人点名'
 	}
+}
+
+// 天选之人选中抽离
+function selectedName(students) {
+	let result = Math.floor(Math.random() * (students.length - 0) + 0)  
+	let selectedName = students[result].name
+	return selectedName
 }
 
 
