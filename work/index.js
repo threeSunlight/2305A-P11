@@ -108,7 +108,7 @@ function oneSelected() {
 	} else if(oneButton.innerText === '停止') {
 		// 清空定时器 
 		/**抽离出去 切除一个数据* */
-		copyStudents.splice(result,1)
+		copyStudents.splice(result,1) // filter
 		tianxuanDOm.innerText = selectedName(copyStudents)
 		clearInterval(timer)
 		oneButton.innerText = '单人点名'
