@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    		<!-- 
+				Vue模板语法有2大类：
+					1.插值语法：
+							功能：用于解析标签体内容。
+							写法：{{xxx}}，xxx是js表达式，且可以直接读取到data中的所有属性。
+                            也可以写三元表达式,基本远算方式,不能写for和if条件判断
+					2.指令语法：
+							功能：用于解析标签（包括：标签属性、标签体内容、绑定事件.....）。
+							举例：v-bind:href="xxx" 或  简写为 :href="xxx"，xxx同样要写js表达式，
+									 且可以直接读取到data中的所有属性。
+							备注：Vue中有很多的指令，且形式都是：v-????，此处我们只是拿v-bind举个例子。
+
+		 -->
+         <div id="root">
+            <h1>姓名:{{name==="徐俊良" ? "徐良" : "张杰" }}</h1>
+            <h1>学校名称: {{school.name}}</h1>
+            <h1>年龄: {{age * 1000}}</h1>
+            <a v-bind:href="school.herf">{{school.name}}</a> 
+         </div>
+</body>
+<script>
+    // 需求: 声明一个人上学,点击链接,跳转到当前学校
+    new Vue({
+        el: "#root",
+        data: {
+            name: "徐良",
+            age: 32,
+            school: {
+                name: '北京五道口职业技术学院',
+                herf: 'https://www.baidu.com/'
+            }
+        }
+    })
+</script>
+</html>

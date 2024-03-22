@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    	<!-- 
+				事件的基本使用：
+							1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
+							2.事件的回调需要配置在methods对象中，最终会在vm上；
+							3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
+							4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
+							5.@click="demo" 和 @click="demo($event)" 效果一致，但后者可以传参；
+		-->
+        <!-- 需求: 欢迎来到哪里学习,传参 -->
+        <div id="root">
+            <h1>欢迎来到{{school.name}}学习</h1>
+            <button v-on:click="handleClick">进修(不传参)</button>
+            <button @click="handleClicks($event, number)">不进修(传参)</button>
+        </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            school: {
+                name: '积云教育'
+            }
+        },
+        methods: {
+            handleClicks(event, number) {
+                console.log(event);
+                event.target.innerText = "ddd"
+            },
+            handleClick() {
+                alert("我是不传参的方法")
+            }
+        }
+    })
+</script>
+</html>
