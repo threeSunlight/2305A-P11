@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+         需求: 有一个姓,有一个名,我要把他们组成一个完成的姓名,在输入框修改姓的时候,组成的名字也进行修改,在输入框修改完整姓名的时候
+              姓和名,同时进行修改
+             1. v-model() methods
+             2. 计算属性
+     -->
+     <div id="root">
+        姓:<input type="text"  v-model="firstName" @input="getFirstName">
+        名:<input type="text"  v-model="lastName" @change="getFirstName">
+        姓名:<input type="text"  v-model="fullName" @change="getFullName">
+     </div>
+</body>
+<script>
+    const vm =new Vue({
+        data: {
+            firstName: "",
+            lastName: "",
+            fullName:""
+        },
+        methods: {
+            // 获取姓
+            getFirstName(e) {
+                if(!this.firstName || !this.lastName) {
+                    return
+                } else {
+                    this.fullName = this.firstName + '-' + this.lastName
+                }
+               
+            },
+            //完整的姓名
+            getFullName() {
+               let result =  this.fullName.split("-")
+               this.firstName = result[0]
+               this.lastName = result[1]
+            }
+        }
+    })
+    vm.$mount("#root")
+</script>
+</html>
